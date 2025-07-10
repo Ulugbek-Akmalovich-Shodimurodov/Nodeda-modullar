@@ -4,9 +4,20 @@ const fs = require('fs');
 
 // console.log(files);
 
-const files = fs.readdir('.qw', (err, files)=>{
+// const files = fs.readdir('.qw', (err, files)=>{
+//     if(err)
+//         console.log(err);
+//     else
+//         console.log(files);
+// })
+
+
+const readFile = fs.readFile('./file.docx', 'utf8', (err, file)=>{
     if(err)
-        console.log(err);
+        throw err
     else
-        console.log(files);
-})
+        console.log(file);
+        
+});
+
+console.log(readFile);
