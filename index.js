@@ -12,12 +12,25 @@ const fs = require('fs');
 // })
 
 
-const readFile = fs.readFile('./file.docx', 'utf8', (err, file)=>{
-    if(err)
-        throw err
-    else
-        console.log(file);
+// const readFile = fs.readFile('./file.docx', 'utf8', (err, file)=>{
+//     if(err)
+//         throw err
+//     else
+//         console.log(file);
         
+// });
+
+// console.log(readFile);
+
+const EventEmitter = require('events');
+
+const emitter = new EventEmitter(); // <-- new qo‘shildi
+
+emitter.on('salom', () => {
+  console.log('Salom olindi!');
 });
 
-console.log(readFile);
+emitter.emit('salom'); // ➜ "Salom olindi!"
+
+
+
