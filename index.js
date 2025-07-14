@@ -26,16 +26,23 @@ const EventEmitter = require('events');
 
 const emitter = new EventEmitter(); // <-- new qo‘shildi
 
-emitter.on('salom', () => {
-  console.log('Salom olindi!');
+// emitter.on('salom', () => {
+//   console.log('Salom olindi!');
+// });
+
+// emitter.emit('salom'); // ➜ "Salom olindi!"
+
+
+
+// emitter.on('salom', (ism) => {
+//   console.log(`Salom, ${ism}!`);
+// });
+
+// emitter.emit('salom', 'Asom'); // ➜ "Salom, Asom!"
+
+emitter.once('birMarta', () => {
+  console.log('Bu faqat bir marta ishlaydi.');
 });
 
-emitter.emit('salom'); // ➜ "Salom olindi!"
-
-
-
-emitter.on('salom', (ism) => {
-  console.log(`Salom, ${ism}!`);
-});
-
-emitter.emit('salom', 'Asom'); // ➜ "Salom, Asom!"
+emitter.emit('birMarta');
+emitter.emit('birMarta'); // bu safar ishlamaydi
