@@ -40,9 +40,20 @@ const emitter = new EventEmitter(); // <-- new qo‘shildi
 
 // emitter.emit('salom', 'Asom'); // ➜ "Salom, Asom!"
 
-emitter.once('birMarta', () => {
-  console.log('Bu faqat bir marta ishlaydi.');
-});
+// emitter.once('birMarta', () => {
+//   console.log('Bu faqat bir marta ishlaydi.');
+// });
 
-emitter.emit('birMarta');
-emitter.emit('birMarta'); // bu safar ishlamaydi
+// emitter.emit('birMarta');
+// emitter.emit('birMarta'); // bu safar ishlamaydi
+
+
+function xabar() {
+  console.log('Bu hodisa yozildi');
+}
+
+emitter.on('xabar', xabar);
+emitter.emit('xabar'); // ➜ "Bu hodisa yozildi"
+
+emitter.off('xabar', xabar); // endi olib tashlandi
+emitter.emit('xabar'); // hech narsa bo‘lmaydi
