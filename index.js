@@ -34,3 +34,8 @@ emitter.emit('salom'); // ➜ "Salom olindi!"
 
 
 
+emitter.on('salom', (ism) => {
+  console.log(`Salom, ${ism}!`);
+});
+
+emitter.emit('salom', 'Asom'); // ➜ "Salom, Asom!"
